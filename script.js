@@ -1,28 +1,15 @@
-// Function to merge and sort two sorted arrays
-function mergeCraftDates(emily, oliver) {
-  let merged = [];
-  let i = 0, j = 0;
-
-  while (i < emily.length && j < oliver.length) {
-    if (emily[i] < oliver[j]) {
-      merged.push(emily[i]);
-      i++;
-    } else {
-      merged.push(oliver[j]);
-      j++;
-    }
-  }
-
-  while (i < emily.length) merged.push(emily[i++]);
-  while (j < oliver.length) merged.push(oliver[j++]);
-
+function mergeCraftDates(emilyDates, oliverDates) {
+  // Combine both arrays
+  const merged = [...emilyDates, ...oliverDates];
+  // Sort in ascending order
+  merged.sort((a, b) => a - b);
   return merged;
 }
 
-// Browser interaction
-document.getElementById("mergeBtn").addEventListener("click", function () {
+// For display on the webpage
+document.getElementById("mergeBtn").addEventListener("click", function() {
   const emily = [3, 7, 12, 20];
   const oliver = [1, 5, 8, 18, 25];
   const result = mergeCraftDates(emily, oliver);
-  document.getElementById("output").innerText = "Merged Record: " + result.join(", ");
+  document.getElementById("output").textContent = "Merged Record: " + result.join(", ");
 });
