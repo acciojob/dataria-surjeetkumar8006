@@ -18,9 +18,13 @@ function mergeCraftDates(emily, oliver) {
   return merged;
 }
 
-document.getElementById('mergeBtn').addEventListener('click', function() {
-  const emily = [3, 7, 12, 20];
-  const oliver = [1, 5, 8, 18, 25];
-  const result = mergeCraftDates(emily, oliver);
-  document.getElementById('output').innerText = "Merged Record: " + result.join(', ');
-});
+// Optional: interactive part for browser only
+if (typeof document !== "undefined") {
+  document.getElementById("mergeBtn").addEventListener("click", function () {
+    const emily = [3, 7, 12, 20];
+    const oliver = [1, 5, 8, 18, 25];
+    const result = mergeCraftDates(emily, oliver);
+    document.getElementById("output").innerText =
+      "Merged Record: " + result.join(", ");
+  });
+}
